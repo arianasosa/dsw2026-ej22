@@ -12,54 +12,81 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+const createSpecialtyTable = (list, tbody, isFiltered = false) => 
+    {
+      tbody.innerHTML = '';
+      list.forEach(item =>
+        {
+              const fila = document.createElement('tr');
+              const filaName = document.createElement('td');
+              const filaDesc = document.createElement('td');
+
+              filaName.innerText = item.name;
+              filaDesc.innerText = item.description;
+
+              fila.appendChild(filaName);
+              fila.appendChild(filaDesc);
+
+              tbody.appendChild(fila);
+        } )
+      };
+
+      const filterSpecialtyTable = (list, tbody, isFiltered = false) => 
+    {
+      tbody.innerHTML = '';
+      list.forEach(item =>
+        {
+          tbody.appendChild(item);
+        } )
+      };
+
+
 fetch('specialties.json')
 .then(result => result.json())
 .then(data => 
   {
-    data.forEach(specialty => 
-      {
-      const tablaSpecialty = document.getElementById('specialty-table-body');
-      const fila = document.createElement('tr');
-      const sp_name = document.createElement('td');
-      const sp_desc = document.createElement('td'); 
+    const specialtyTable = document.getElementById('specialty-table-body');
+    createSpecialtyTable(data, specialtyTable)
+  })
+.catch(error => console.error(error));
 
-      sp_name.innerText = specialty.name;
-      sp_desc.innerText = specialty.description;
-      
-      fila.appendChild(sp_name);
-      fila.appendChild(sp_desc);
-
-      tablaSpecialty.appendChild(fila);
-    });
-  }).catch(error => console.error(error));
-
-  const btnBuscar = document.getElementById('btn-buscar');
-  btnBuscar.addEventListener('click', () => 
+  const contains = (a,b) => a.toLowerCase().includes(b.toLowerCase());
+  const specialtyForm = document.getElementById('form-sp-name');
+  specialtyForm.addEventListener('submit', e => 
     {
-      fetch('specialties.json')
+      e.preventDefault(); 
+      const specialtyTable = document.getElementById('specialty-table-body');
+      const specialties = Array.from(specialtyTable.children);
+
+      const specialtyName = document.getElementById('specialty-input').value;
+          let filterExpression = sp => true;
+          let isFiltered = false;
+          if(specialtyName != '')
+            {
+              //filterExpression = sp => contains(sp.name,specialtyName);
+              filterExpression = tr => contains(tr.firstChild.innerText,specialtyName);
+              isFiltered = true;
+            }
+          const filteredSpecialties = specialties.filter(filterExpression);
+          filterSpecialtyTable(filteredSpecialties, specialtyTable,isFiltered);
+        }) 
+
+
+
+      /*fetch('specialties.json')
       .then(result => result.json())
       .then(data => 
         {
-          const searchbarText = document.getElementById('specialty-searchbar');
-          const spName = document.getElementById('form-sp-name');
-          const filteredSpecialties = 
-          data.filter((specialty => specialty.name == searchbarText.innerText));
-          filteredSpecialties.forEach(specialty => 
-                      {
-                        console.log(searchbarText.innerText);
-                      const tablaSpecialty = document.getElementById('specialty-table-body');
-                      const fila = document.createElement('tr');
-                      const sp_name = document.createElement('td');
-                      const sp_desc = document.createElement('td'); 
-
-                      sp_name.innerText = specialty.name;
-                      sp_desc.innerText = specialty.description;
-                      
-                      fila.appendChild(sp_name);
-                      fila.appendChild(sp_desc);
-
-                      tablaSpecialty.appendChild(fila);
-                    });
+          const specialtyName = document.getElementById('specialty-input').value;
+          let filterExpression = sp => true;
+          let isFiltered = false;
+          if(specialtyName != '')
+            {
+              filterExpression = sp => contains(sp.name,specialtyName);
+              isFiltered = true;
+            }
+          const filteredData = data.filter(filterExpression);
+          const specialtyTable = document.getElementById('specialty-table-body');
+          createSpecialtyTable(filteredData, specialtyTable,isFiltered);
         })
-        .catch(error => console.error(error));
-    })
+        .catch(error => console.error(error));*/
