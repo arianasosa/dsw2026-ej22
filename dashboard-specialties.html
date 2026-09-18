@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista de Productos</title>
+  <title>Lista de especialidades</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="dashboard_style.css">
-  <script src="dashboard.js"></script>
+  <script type="module" src="dashboard.js"></script>
 </head>
 <body>
   <div class="dashboard-container">
@@ -23,16 +23,23 @@
       </ul>
     </nav>
     <main>
-      <h1>Pacientes</h1>
-      <table>
+      <h1>Especialidades</h1>
+      <div class="search-section">
+        <form id="form-sp-name">
+            <label for="specialty-name">Especialidad: </label>
+            <input id="specialty-searchbar" type="text" name="specialty-name">
+            <button id="btn-buscar" type="submit">Buscar</button>
+        </form>
+      </div>
+      <table class="specialty-table">
         <thead>
           <tr>
-            <th>ID</th>
-            <th>Paciente</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
           </tr>
         </thead>
-        <tbody id="product-table-body">
-          <!-- Los productos se cargarán aquí dinámicamente -->
+        <tbody id="specialty-table-body">
+          
         </tbody>
       </table>
     </main>
