@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
   const logoutButton = document.getElementById('logout');
   const menuBtn = document.getElementById('menu-btn');
   const sideBar = document.getElementById('sidebar');
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     {
       sideBar.classList.toggle('open');
     });
-});
+});*/
 
 const createSpecialtyTable = (list, tbody, isFiltered = false) => 
     {
@@ -40,53 +40,70 @@ const createSpecialtyTable = (list, tbody, isFiltered = false) =>
         } )
       };
 
-
-fetch('specialties.json')
-.then(result => result.json())
-.then(data => 
+const fetchSpecialties = async () => 
   {
-    const specialtyTable = document.getElementById('specialty-table-body');
-    createSpecialtyTable(data, specialtyTable)
-  })
-.catch(error => console.error(error));
-
-  const contains = (a,b) => a.toLowerCase().includes(b.toLowerCase());
-  const specialtyForm = document.getElementById('form-sp-name');
-  specialtyForm.addEventListener('submit', e => 
+    try
     {
-      e.preventDefault(); 
-      const specialtyTable = document.getElementById('specialty-table-body');
-      const specialties = Array.from(specialtyTable.children);
+      const response = await fetch('specialties.json');
+      const specialties = await response.json();
+      return specialties;
+    }
+    catch(e)
+    {
+      console.error(e);
+    }
+  }
 
-      const specialtyName = document.getElementById('specialty-input').value;
-          let filterExpression = sp => true;
-          let isFiltered = false;
-          if(specialtyName != '')
-            {
-              //filterExpression = sp => contains(sp.name,specialtyName);
-              filterExpression = tr => contains(tr.firstChild.innerText,specialtyName);
-              isFiltered = true;
-            }
-          const filteredSpecialties = specialties.filter(filterExpression);
-          filterSpecialtyTable(filteredSpecialties, specialtyTable,isFiltered);
-        }) 
+const contains = (a,b) => 
+  {
+    const normalizedA = a.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    const normalizedB = b.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+    return normalizedA.toLowerCase().includes(normalizedB.toLowerCase());
+  }
+const loadTable = async (filterCriteria = '') =>
+  {
+    const specialties = await fetchSpecialties();
+    const tbody = document.getElementById('specialty-table-body');
 
+    if(filterCriteria.length)
+      {
+        const specialtiesFiltered = specialties.filter(sp => contains(sp.name, filterCriteria));
+        createSpecialtyTable(specialtiesFiltered, tbody);
+      }
+    else
+      {
+        createSpecialtyTable(specialties, tbody);
+      }
+  }
+const specialtyForm = document.getElementById('form-sp-name');
+specialtyForm.addEventListener('submit', e => 
+  {
+    e.preventDefault(); 
+    const specialtyName = document.getElementById('specialty-input').value;
+    loadTable(specialtyName);
+  });
+  
+const input = document.getElementById('specialty-input');
 
+input.addEventListener('keyup',e =>
+  {
+    console.log(e.srcElement.value);
+    if(e.srcElement.value.length > 3)
+      {
+        loadTable(e.srcElement.value);
+      }
+    else if (e.srcElement.value.length === 0) 
+      {
+        loadTable();
+      }
+  })
+  loadTable();
 
-      /*fetch('specialties.json')
-      .then(result => result.json())
-      .then(data => 
-        {
-          const specialtyName = document.getElementById('specialty-input').value;
-          let filterExpression = sp => true;
-          let isFiltered = false;
-          if(specialtyName != '')
-            {
-              filterExpression = sp => contains(sp.name,specialtyName);
-              isFiltered = true;
-            }
-          const filteredData = data.filter(filterExpression);
-          const specialtyTable = document.getElementById('specialty-table-body');
-          createSpecialtyTable(filteredData, specialtyTable,isFiltered);
-        })
-        .catch(error => console.error(error));*/
+  
+  
+  document.addEventListener('DOMContentLoaded', () => 
+  {
+    loadTable();
+    
+  });
+
