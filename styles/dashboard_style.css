@@ -64,6 +64,10 @@
   overflow-y: auto;
 }
 
+.specialty-table  {
+  margin: 10px;
+  border-radius:5px;
+}
 .dashboard-container footer {
   grid-area: footer;
   background-color: #333;
