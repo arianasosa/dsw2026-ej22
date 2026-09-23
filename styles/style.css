@@ -2,6 +2,7 @@ body {
   margin: 0;
   font-size: 2rem;
   height: 100dvh;
+  background-color: #f0faff;
 }
 
 @media screen and (min-width: 600px) {
