@@ -5,6 +5,7 @@
   grid-template-areas: 
     "header"
     "main"
+    "cards"
     "footer";
   height: 100dvh;
 }
@@ -41,7 +42,7 @@
   border-bottom: 1px solid #ddd;
 }
 
-.dashboard-container header {
+.dashboard-container > header {
   grid-area: header;
   height: 50px;
   background-color: #333;
@@ -74,6 +75,90 @@
   color: white;
   text-align: center;
   padding: 1rem;
+}
+
+/*Estilo para la sección de búsqueda*/
+
+.search-section
+{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.search-section .search-section-header
+{
+  width: auto;
+  height: fit-content;
+  border: 1px solid black; /*Lo pongo como referencia nomas*/
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 1;
+}
+.search-section #specialty-input
+{
+  width: 200px;
+  height: 28px;
+  border-radius: 4px;
+}
+.search-section #btn-new-specialty
+{
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+/*Estilo para las cards*/
+
+.specialty-info-cards
+{
+  grid-area: "cards";
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 25px;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.specialty-info-cards .info-card
+{
+  width: 250px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap:8px;
+  border: 1px solid rgba(183, 183, 183, 0.724);
+  border-radius: 7px; 
+}
+
+.card-header
+{
+  display: flex;
+  justify-content: space-between;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 15px;
+}
+
+.card-icon
+{
+  display: flex;
+  width: 22px;
+  height: 30px;
+  color: #4676de;
+  border-radius: 3px;
+  background: rgb(184, 204, 205);
+  align-items: center;
+  justify-content: center;
+}
+.card-icon img
+{
+  width: 12px;
+  height: 12px;
 }
 
 @media screen and (min-width: 600px) {

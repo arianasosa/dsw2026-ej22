@@ -23,28 +23,79 @@
       </ul>
     </nav>
     <main>
-      <h1>Especialidades</h1>
-      <div class="search-section">
+      <h1><strong> Directorio de Especialidades</strong></h1>
+
+      <!--Sección de búsqueda-->
+      <section class="search-section">
+        <div class="search-section-header">
+          <p>Administre las categorías médicas,
+             servicios y disponibilidad del personal 
+             especializado
+          </p>
+        </div>
         <form id="form-sp-name">
-            <label for="specialty-name">Especialidad: </label>
             <div class="search-bar">
-              <input id="specialty-input" type="text" name="specialty-name">
-               <!--boton borrado-->
+              <input id="specialty-input" 
+              type="text" 
+              name="specialty-name"
+              placeholder="Buscar especialidad...">
+              <!--boton borrado <- esta fue idea del profe-->
+              <!--ícono de la lupita-->
             </div>
-            <button id="btn-buscar" type="submit">Buscar</button>
+            <button id="btn-buscar" type="submit">Buscar</button> <!--Lo mantengo por ahora, pero en el mockup del tfi este btn no existe-->
         </form>
-      </div id=divperuano>
+        <button id="btn-new-specialty">Nueva<br>Especialidad</button>
+      </section>
+
+      <!--Tabla de especialidades-->
       <table class="specialty-table">
         <thead>
           <tr>
-            <th>Nombre</th>
+            <th style="max-width: 50px;">Nombre de la especialidad</th> <!--Le pegué a los 50px pero no creo que sea la forma adecuada de resolverlo-->
             <th>Descripción</th>
+            <th>Estado</th>
+            <th>Acciones</th>
           </tr>
         </thead>
         <tbody id="specialty-table-body">
           
         </tbody>
       </table>
+
+      <!--Cards abajo de la tabla-->
+      <section class="specialty-info-cards">
+        <div class="info-card">
+          <header class="card-header">
+            <span class="card-title">TOTAL ESPECIALIDADES</span>
+            <span class="card-icon">
+              <img src="icons/list.png" alt="list-icon">
+            </span>
+          </header>
+          <!--Acá iría el número de especialidades calculado, por ahora será un placeholder-->
+          <div class="card-value">24</div>
+          <!--Acá iría el dato de cuantas se agregaron durante el trimestre-->
+          <div class="card-extra-info">+2 este trimestre</div>
+        </div>
+
+        <div class="info-card">
+        <header class="card-header">
+          <span class="card-title">MÁS DEMANDADA</span>
+          <span class="card-icon">iconito</span>
+        </header>
+        <div class="card-value">Cardiología</div>
+        <div class="card-extra-info">15% incremento en citas</div>
+        </div>
+
+        <div class="info-card">
+          <header class="card-header">
+          <span class="card-title">NUEVAS ESTE MES</span>
+          <span class="card-icon"></span>
+        </header>
+        <div class="card-value">03</div>
+        <div class="card-extra-info">Psicologia, Nutrición...</div>
+        </div>
+      </section>
+
     </main>
     <footer>Centro de atención médica Sanatología y Otras ciencias &copy; 2032</footer>
   </div>
