@@ -11,12 +11,19 @@
 </head>
 <body>
   <div class="login-container">
+    <header class="header-login">
+      <div class="icon-container">
+        <img src="medportal-icon.png" alt="icono de la app" > 
+      </div>
+      <h1>MedPortal</h1>
+    </header>
     <form>
-      <header>
-        <h4>Bienvenido</h4>
-        <p>Ingrese sus credenciales para iniciar sesión</p>
+      <div id="form-header">
+        <header>
+        <p>Bienvenido de nuevo</p>
+        Por favor, autentíquese para acceder al portal de proveedores
       </header>
-      <div id="form-header"></div>
+      </div>
       <label for="username">Nombre de usuario</label>
       <input type="text" 
       id="username" 
@@ -32,8 +39,15 @@
         placeholder=&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;
         required>
       
-      <button type="submit">Iniciar Sesión</button>
+      <button id="btn-login" type="submit"><span>Iniciar Sesión</span></button>
+      <footer class="form-footer">
+        <p> <strong>Solo Acceso Seguro:</strong> Este sistema es para
+           personal médico autorizado. Los intentos de acceso no 
+          autorizados son registrados y monitoreados para su
+        cumplimiento</p>
+    </footer>
     </form>
+    
   </div>
 </body>
 </html>
