@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Lista de especialidades</title>
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="stylesheet" href="styles/dashboard_style.css">
-  <script defer src="scripts/dashboard.js"></script>
+  <link rel="stylesheet" href="/styles/style.css">
+  <link rel="stylesheet" href="/styles/dashboard_style.css">
+  <script defer src="/scripts/global-dashboard.js"></script>
+  <script defer src="/scripts/main-dashboard.js"></script>
 </head>
 <body>
   <div class="dashboard-container">
@@ -18,9 +19,6 @@
       </div>
     </header>
     <nav id="sidebar">
-      <ul>
-        <li><a href="#">Panel</a></li>
-      </ul>
     </nav>
     <main>
       <h1><strong> Directorio de Especialidades</strong></h1>
@@ -42,16 +40,17 @@
               <!--boton borrado <- esta fue idea del profe-->
               <!--ícono de la lupita-->
             </div>
-            <button id="btn-buscar" type="submit">Buscar</button> <!--Lo mantengo por ahora, pero en el mockup del tfi este btn no existe-->
-        </form>
-        <button id="btn-new-specialty">Nueva<br>Especialidad</button>
+          </form>
+          <a href="dashboard-specialties-create.html">
+            <button type="button" id="btn-new-specialty">Nueva<br>Especialidad</button>
+          </a>
       </section>
 
       <!--Tabla de especialidades-->
       <table class="specialty-table">
         <thead>
           <tr>
-            <th style="max-width: 50px;">Nombre de la especialidad</th> <!--Le pegué a los 50px pero no creo que sea la forma adecuada de resolverlo-->
+            <th>Nombre de la<br>especialidad</th> <!--Le pegué a los 50px pero no creo que sea la forma adecuada de resolverlo-->
             <th>Descripción</th>
             <th>Estado</th>
             <th>Acciones</th>

@@ -1,16 +1,4 @@
-/*document.addEventListener('DOMContentLoaded', () => {
-  const logoutButton = document.getElementById('logout');
-  const menuBtn = document.getElementById('menu-btn');
-  const sideBar = document.getElementById('sidebar');
 
-  logoutButton.addEventListener('click', () => {
-    window.location.href = 'login.html';
-  });
-  menuBtn.addEventListener('click', () =>
-    {
-      sideBar.classList.toggle('open');
-    });
-});*/
 
 const createSpecialtyTable = (list, tbody, isFiltered = false) => 
     {
@@ -20,12 +8,15 @@ const createSpecialtyTable = (list, tbody, isFiltered = false) =>
               const fila = document.createElement('tr');
               const filaName = document.createElement('td');
               const filaDesc = document.createElement('td');
+              const filaStatus = document.createElement('td');
 
               filaName.innerText = item.name;
               filaDesc.innerText = item.description;
+              filaStatus.innerText = item.status;
 
               fila.appendChild(filaName);
               fila.appendChild(filaDesc);
+              fila.appendChild(filaStatus);
 
               tbody.appendChild(fila);
         } )
@@ -44,7 +35,7 @@ const fetchSpecialties = async () =>
   {
     try
     {
-      const response = await fetch('specialties.json');
+      const response = await fetch('/data/specialties.json');
       const specialties = await response.json();
       return specialties;
     }
@@ -97,13 +88,5 @@ input.addEventListener('keyup',e =>
         loadTable();
       }
   })
-  loadTable();
 
-  
-  
-  document.addEventListener('DOMContentLoaded', () => 
-  {
-    loadTable();
-    
-  });
-
+loadTable();

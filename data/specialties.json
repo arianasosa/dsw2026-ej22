@@ -1,0 +1,51 @@
+
+[
+  {
+    "id": 1,
+    "name": "Cardiología",
+    "description": "Especialidad dedicada al diagnóstico y tratamiento de enfermedades del corazón y del sistema circulatorio.",
+    "status": "Active"
+},
+  {
+    "id": 2,
+    "name": "Neurología",
+    "description": "Se ocupa de los trastornos del sistema nervioso central y periférico, incluyendo cerebro, médula espinal y nervios.",
+    "status": "Active"
+},
+  {
+    "id": 3,
+    "name": "Pediatría",
+    "description": "Atiende la salud y el desarrollo de los niños desde el nacimiento hasta la adolescencia.",
+    "status": "Active"
+},
+  {
+    "id": 4,
+    "name": "Dermatología",
+    "description": "Especialidad enfocada en el diagnóstico y tratamiento de enfermedades de la piel, cabello y uñas.",
+    "status": "Active"
+},
+  {
+    "id": 5,
+    "name": "Oncología",
+    "description": "Se centra en la prevención, diagnóstico y tratamiento del cáncer.",
+    "status": "Active"
+},
+  {
+    "id": 6,
+    "name": "Ginecología",
+    "description": "Atiende la salud del sistema reproductor femenino y el manejo de enfermedades relacionadas.",
+    "status": "Active"
+},
+  {
+    "id": 7,
+    "name": "Traumatología",
+    "description": "Especialidad que trata lesiones del aparato locomotor, huesos, articulaciones y músculos.",
+    "status": "Active"
+},
+  {
+    "id": 8,
+    "name": "Psiquiatría",
+    "description": "Se ocupa de la prevención, diagnóstico y tratamiento de trastornos mentales y emocionales.",
+    "status": "Active"
+}
+]
