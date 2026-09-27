@@ -3,6 +3,7 @@ body {
   font-size: 2rem;
   height: 100dvh;
   background-color: #f0faff;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif, Tahoma, Geneva, Verdana, sans-serif, Geneva, Tahoma, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 @media screen and (min-width: 600px) {
