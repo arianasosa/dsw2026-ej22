@@ -6,8 +6,15 @@
   <title>Lista de especialidades</title>
   <link rel="stylesheet" href="/styles/style.css">
   <link rel="stylesheet" href="/styles/dashboard_style.css">
-  <script defer src="/scripts/global-dashboard.js"></script>
-  <script defer src="/scripts/main-dashboard.js"></script>
+  
+  <link rel="stylesheet" href="/styles/components/sidebar.css">
+  <link rel="stylesheet" href="/styles/components/search-section.css">
+  <link rel="stylesheet" href="/styles/components/table.css">
+  <link rel="stylesheet" href="/styles/components/cards.css">
+  
+  <script defer src="/scripts/components/sidebar.js"></script>
+  <script defer src="/scripts/services/specialties-service.js"></script>
+  <script defer src="/scripts/pages/specialties-list.js"></script>
 </head>
 <body>
   <div class="dashboard-container">
@@ -40,7 +47,7 @@
               <!--ícono de la lupita-->
             </div>
           </form>
-          <a href="dashboard-specialties-create.html">
+          <a href="/pages/admin/specialties-create.html">
             <button type="button" id="btn-new-specialty">Nueva<br>Especialidad</button>
           </a>
       </section>
