@@ -366,10 +366,9 @@
   font-weight: 700;
   color: #091b29; 
 }
-.specialty-table td:nth-child(3)
+.specialty-table .status-container
 {
-  height: 30px;
-  width: 56px;
+  padding: 5px;
   background-color: #63f9db;
   border-radius: 15px;
   text-align: center;

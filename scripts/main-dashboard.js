@@ -9,15 +9,19 @@ const createSpecialtyTable = (list, tbody, isFiltered = false) =>
               const filaName = document.createElement('td');
               const filaDesc = document.createElement('td');
               const filaStatus = document.createElement('td');
+              const statusContainer = document.createElement('span');
 
               filaName.innerText = item.name;
               filaDesc.innerText = item.description;
-              filaStatus.innerText = item.status;
-
+              statusContainer.classList.add('status-container');
+              /*filaStatus.innerText = item.status;*/
+              statusContainer.innerText = item.status;
+              
               fila.appendChild(filaName);
               fila.appendChild(filaDesc);
-              fila.appendChild(filaStatus);
 
+              filaStatus.appendChild(statusContainer);
+              fila.appendChild(filaStatus);
               tbody.appendChild(fila);
         } )
       };
