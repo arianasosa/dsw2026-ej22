@@ -1,0 +1,63 @@
+[
+  {
+    "id": "D1",
+    "name": "Juan Pérez",
+    "specialty": "Cardiología",
+    "status": "Active"
+
+  },
+  {
+    "id": "D2",
+    "name": "María González",
+    "specialty": "Pediatría",
+    "status": "Active"
+  },
+  {
+    "id": "D3",
+    "name": "Carlos Rodríguez",
+    "specialty": "Traumatología",
+    "status": "Active"
+  },
+  {
+    "id": "D4",
+    "name": "Ana Fernández",
+    "specialty": "Dermatología",
+    "status": "Active"
+  },
+  {
+    "id": "D5",
+    "name": "Lucía Martínez",
+    "specialty": "Neurología",
+    "status": "Active"
+  },
+  {
+    "id": "D6",
+    "name": "Diego López",
+    "specialty": "Cardiología",
+    "status": "Active"
+  },
+  {
+    "id": "D7",
+    "name": "Sofía Ramírez",
+    "specialty": "Pediatría",
+    "status": "Active"
+  },
+  {
+    "id": "D8",
+    "name": "Martín Herrera",
+    "specialty": "Traumatología",
+    "status": "Active"
+  },
+  {
+    "id": "D9",
+    "name": "Valentina Castro",
+    "specialty": "Dermatología",
+    "status": "Active"
+  },
+  {
+    "id": "D10",
+    "name": "Gabriel Torres",
+    "specialty": "Neurología",
+    "status": "Active"
+  }
+]

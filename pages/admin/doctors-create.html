@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar doctores</title>
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/pages/doctors-create.css">
+  <link rel="stylesheet" href="/styles/pages/admin-global.css">
+  
+  <script defer src="/scripts/admin-global.js"></script>
+  <link rel="stylesheet" href="/styles/components/sidebar.css">
+  <script defer src="/scripts/global-dashboard.js"></script>
+  <script defer src="/scripts/components/sidebar.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <span>Gestor de turnos</span>
+      <div>
+        <button class="menu" id="menu-btn">&#9776;</button>
+      </div>
+    </header>
+    <nav id="sidebar">
+    </nav>
+    <main>
+      <div class="page-header">
+        <h1>Registrar Nuevo Doctor</h1>
+        <p class="page-subtitle">
+          Complete todos los campos obligatorios para integrar al nuevo facultativo al sistema del centro medico
+        </p>
+      </div>
+     <div class="cuadroformulario">
+        <form class="formularioCrear">
+            <label for="nombre">Nombre completo del doctor</label>
+            <input type="text" placeholder="Ej: Dr. Juan Pérez" id="nombre">
+            
+            <div class="fila-campos">
+              <div class="campo">
+                <label for="specialty">Especialidad</label>
+                <select id="specialty">
+                  <option value="Cardiología">Cardiología</option>
+                  <option value="Pediatría">Pediatría</option>
+                  <option value="Traumatología">Traumatología</option>
+                  <option value="Dermatología">Dermatología</option>
+                  <option value="Neurología">Neurología</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="License">Numero de Licencia</label>
+                <input id="inputLicense" placeholder="ID-45920-x">
+              </div>
+            </div>
+            <div class="btn-container">
+                <button id="cancel-btn">Cancelar</button>
+                <button id="create-btn">Guardar Doctor</button>
+            </div>
+        </form>
+    </div>
+    </main>
+    <footer>Centro de atención médica Sanatología y Otras ciencias &copy; 2032</footer>
+  </div>
+</body>
+</html>
