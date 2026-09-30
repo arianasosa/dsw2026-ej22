@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', () =>
   {
     const logoutButton = document.getElementById('logout');
     const menuBtn = document.getElementById('menu-btn');
-
-    /*logoutButton.addEventListener('click', () => 
+    const sideBar = document.getElementById('sidebar');
+    logoutButton.addEventListener('click', () => 
       {
-        window.location.href = 'login.html';
-      });*/
+        window.location.href = '/pages/auth/login.html';
+      });
       
     menuBtn.addEventListener('click', () =>
     {

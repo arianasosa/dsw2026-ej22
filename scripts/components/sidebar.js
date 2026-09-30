@@ -14,4 +14,4 @@ const loadSidebar = (fileName, sideBar) =>
     {
       sideBar.classList.toggle('open');
     });
-    loadSidebar('/pages/admin/layout.html',sideBar);
+    loadSidebar('/pages/admin/components/sidebar.html',sideBar);

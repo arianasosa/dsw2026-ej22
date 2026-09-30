@@ -1,0 +1,43 @@
+.dashboard-container .cuadroformulario
+{
+  background-color: #ffff;
+  margin: 80px;
+  padding: 15px;
+  justify-content: center;
+}
+.dashboard-container .formularioCrear
+{
+  display: grid;
+  gap: 5px;
+}
+#inputDescription
+{
+  height:150px;
+}
+
+.btn-container
+{
+  display: flex;
+  flex-direction: row;
+  gap: 6px;
+}
+
+.btn-container button
+{
+  height: 40px;
+  border-radius: 6px;
+}
+
+#cancel-btn
+{
+  border: 1px solid rgb(38, 66, 107);
+  background-color: inherit;
+  color: rgb(48, 82, 132);
+  font-weight: 550;
+}
+
+#create-btn
+{
+  background-color: #053660;
+  color: #ffff;
+}

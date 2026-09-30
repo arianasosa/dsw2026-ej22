@@ -1,22 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => 
   {
-    const logoutButton = document.getElementById('logout');
-    const menuBtn = document.getElementById('menu-btn');
     const input = document.getElementById('specialty-input');
     const specialtyForm = document.getElementById('form-sp-name');
     
-    /*logoutButton.addEventListener('click', () => 
-      {
-        window.location.href = 'login.html';
-      });*/
-      
     loadTable();
-
-    
-    menuBtn.addEventListener('click', () =>
-    {
-      sideBar.classList.toggle('open');
-    }); 
     
     specialtyForm.addEventListener('submit', e => 
     {
