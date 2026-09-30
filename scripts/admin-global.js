@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () =>
     const sideBar = document.getElementById('sidebar');
     logoutButton.addEventListener('click', () => 
       {
-        window.location.href = '/pages/auth/login.html';
+        window.location.href = '../../pages/auth/login.html';
       });
       
     menuBtn.addEventListener('click', () =>

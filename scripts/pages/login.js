@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if(username === 'admin' && password === 'admin') {
             
-            window.location.href = 'dashboard-specialties.html';
+            window.location.href = '../../pages/admin/specialties-list.html';
         } else {
             alert('Usuario o contraseña incorrectos');
         }
