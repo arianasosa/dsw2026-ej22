@@ -1,0 +1,83 @@
+.page-header h1
+{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 4px 0;
+  font-size: 1.5rem;
+  color: #053660;
+}
+
+.page-subtitle
+{
+  margin: 0;
+  font-size: 0.9rem;
+  color: #5b6b7a;
+}
+
+.dashboard-container .cuadroformulario
+{
+  background-color: #ffff;
+  margin: 80px;
+  padding: 15px;
+  justify-content: center;
+}
+.dashboard-container .formularioCrear
+{
+  display: grid;
+  gap: 5px;
+}
+
+#inputLicense
+{
+  height: 16px;
+}
+
+.btn-container
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.btn-container button
+{
+  height: 40px;
+  border-radius: 6px;
+}
+
+.fila-campos
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.campo
+{
+  display: grid;
+  gap: 5px;
+}
+
+/* @media (max-width: 600px)
+{
+  .fila-campos
+  {
+    grid-template-columns: 1fr;
+  }
+} */
+
+#cancel-btn
+{
+  border: 1px solid rgb(38, 66, 107);
+  background-color: inherit;
+  color: rgb(48, 82, 132);
+  font-weight: 550;
+}
+
+#create-btn
+{
+  background-color: #053660;
+  color: #ffff;
+}
