@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de Sesion</title>
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/pages/login.css">
+
+  <script defer src="scripts/login.js"></script>
+</head>
+<body>
+  <div class="login-container">
+    <header class="header-login">
+      <div class="icon-container">
+        <img src="icons/medportal-icon.png" alt="icono de la app" > 
+      </div>
+      <h1>MedPortal</h1>
+    </header>
+    <form>
+      <div id="form-header">
+        <header>
+        <p>Bienvenido de nuevo</p>
+        Por favor, autentíquese para acceder al portal de proveedores
+      </header>
+      </div>
+      <label for="username">Nombre de usuario</label>
+      <input type="text" 
+      id="username" 
+      name="username"
+      placeholder="Ingrese ID de admin"
+      required>
+      <br>
+      <label for="password">Contraseña:</label>
+      <input 
+      type="password"
+       id="password"
+        name="password"
+        placeholder=&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;
+        required>
+      
+      <button id="btn-login" type="submit"><span>Iniciar Sesión</span></button>
+      <footer class="form-footer">
+        <p> <strong>Solo Acceso Seguro:</strong> Este sistema es para
+           personal médico autorizado. Los intentos de acceso no 
+          autorizados son registrados y monitoreados para su
+        cumplimiento</p>
+    </footer>
+    </form>
+    
+  </div>
+</body>
+</html>

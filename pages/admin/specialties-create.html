@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar especialidades</title>
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/pages/specialties-create.css">
+  <link rel="stylesheet" href="/styles/pages/admin-global.css">
+  
+  <script defer src="/scripts/admin-global.js"></script>
+  <link rel="stylesheet" href="/styles/components/sidebar.css">
+  <script defer src="/scripts/global-dashboard.js"></script>
+  <script defer src="/scripts/components/sidebar.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <span>Gestor de turnos</span>
+      <div>
+        <button class="menu" id="menu-btn">&#9776;</button>
+      </div>
+    </header>
+    <nav id="sidebar">
+    </nav>
+    <main>
+      <h1>Registrar Nueva Especialidad</h1>
+      <p>Complete la informacion tecnica y administrativa para dar de alta una especialidad medica en el sistema hospitalario</p>
+     <div class="cuadroformulario">
+        <form class="formularioCrear">
+            <label>Nombre de la especialidad</label>
+            <input type="text" placeholder="Ej: Cardiología Intervención">
+            <label>Descripción</label>
+            <textarea id="inputDescription" placeholder="Detalle el alcance de la especialidad, procedimientos principales y requisitos de derivacion..."></textarea>
+            <label for="Especialidades">Estado inicial</label>
+            <select id="Especialidades">
+            <option value="">Activo - Disponible para programacion</option>
+            <option value="">No Activo - No Disponible para programacion</option>
+            </select>
+            <div class="btn-container">
+                <button id="cancel-btn">Cancelar</button>
+                <button id="create-btn">Guardar Especialidad</button>
+            </div>
+        </form>
+    </div>
+    </main>
+    <footer>Centro de atención médica Sanatología y Otras ciencias &copy; 2032</footer>
+  </div>
+</body>
+</html>

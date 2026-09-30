@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de especialidades</title>
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/pages/admin-global.css">
+  
+  <link rel="stylesheet" href="/styles/components/sidebar.css">
+  <link rel="stylesheet" href="/styles/components/search-section.css">
+  <link rel="stylesheet" href="/styles/components/table.css">
+  <link rel="stylesheet" href="/styles/components/cards.css">
+  
+  <script defer src="/scripts/admin-global.js"></script>
+  <script defer src="/scripts/components/sidebar.js"></script>
+  <script defer src="/scripts/services/specialties-service.js"></script>
+  <script defer src="/scripts/pages/specialties-list.js"></script>
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <span>Gestor de turnos</span>
+      <div>
+        <button class="menu" id="menu-btn">&#9776;</button>
+      </div>
+    </header>
+    <nav id="sidebar">
+    </nav>
+    <main>
+      <h1><strong> Directorio de Especialidades</strong></h1>
+
+      <!--Sección de búsqueda-->
+      <section class="search-section">
+        <div class="search-section-header">
+          <p>Administre las categorías médicas,
+             servicios y disponibilidad del personal 
+             especializado
+          </p>
+        </div>
+        <form id="form-sp-name">
+            <div class="search-bar">
+              <input id="specialty-input" 
+              type="text" 
+              name="specialty-name"
+              placeholder="Buscar especialidad...">
+              <!--boton borrado <- esta fue idea del profe-->
+              <!--ícono de la lupita-->
+            </div>
+          </form>
+          <a href="/pages/admin/specialties-create.html">
+            <button type="button" id="btn-new-specialty">Nueva<br>Especialidad</button>
+          </a>
+      </section>
+
+      <!--Tabla de especialidades-->
+      <table class="specialty-table">
+        <thead>
+          <tr>
+            <th>Nombre de la<br>especialidad</th>
+            <th>Descripción</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="specialty-table-body">
+          
+        </tbody>
+      </table>
+
+      <!--Cards abajo de la tabla-->
+      <section class="specialty-info-cards">
+        <div class="info-card">
+          <header class="card-header">
+            <span class="card-title">TOTAL ESPECIALIDADES</span>
+            <span class="card-icon">
+              <img src="/icons/list.png" alt="list-icon">
+            </span>
+          </header>
+          <!--Acá iría el número de especialidades calculado, por ahora será un placeholder-->
+          <div class="card-value">24</div>
+          <!--Acá iría el dato de cuantas se agregaron durante el trimestre-->
+          <div class="card-extra-info">+2 este trimestre</div>
+        </div>
+
+        <div class="info-card">
+        <header class="card-header">
+          <span class="card-title">MÁS DEMANDADA</span>
+          <span class="card-icon">
+            <img src="/icons/heart.png" alt="icono corazon">
+          </span>
+        </header>
+        <div class="card-value">Cardiología</div>
+        <div class="card-extra-info">15% incremento en citas</div>
+        </div>
+
+        <div class="info-card">
+          <header class="card-header">
+          <span class="card-title">NUEVAS ESTE MES</span>
+          <span class="card-icon">
+            <img src="/icons/verified.png" alt="icono verificado">
+          </span>
+        </header>
+        <div class="card-value">03</div>
+        <div class="card-extra-info">Psicologia, Nutrición...</div>
+        </div>
+      </section>
+
+    </main>
+    <footer>Centro de atención médica Sanatología y Otras ciencias &copy; 2032</footer>
+  </div>
+</body>
+</html>

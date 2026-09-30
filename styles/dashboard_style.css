@@ -1,3 +1,4 @@
+
 .dashboard-container {
   display: grid;
   grid-template-columns: auto;
@@ -7,6 +8,7 @@
     "main"
     "footer";
   height: 100dvh;
+  background-color: #effaff;;
 }
 
 .dashboard-container nav {
@@ -14,7 +16,7 @@
   top: 0;
   bottom: 0;
   width: 200px;
-  background-color: #f4f4f4;
+  background-color: #ffff;
   left: -200px;
 }
 
@@ -25,7 +27,7 @@
   top: 0;
   bottom: 0;
   width: 200px;
-  background-color: #f4f4f4;
+  background-color: #ffff;
   left: 0;
 }
 
@@ -41,10 +43,10 @@
   border-bottom: 1px solid #ddd;
 }
 
-.dashboard-container header {
+.dashboard-container > header {
   grid-area: header;
   height: 50px;
-  background-color: #333;
+  background-color: #245aa0;
   color: white;
   display: flex;
   align-items: center;
@@ -62,33 +64,16 @@
   grid-area: main;
   padding: 1rem;
   overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  justify-content: left;
 }
 
-.dashboard-container footer {
+.dashboard-container > footer {
   grid-area: footer;
   background-color: #333;
   color: white;
   text-align: center;
   padding: 1rem;
-}
-
-@media screen and (min-width: 600px) {
-  .dashboard-container {
-    grid-template-columns: 200px 1fr;
-    grid-template-areas: 
-      "header header"
-      "nav main"
-      "footer footer";
-  }
-
-  .dashboard-container nav {
-    grid-area: nav;
-    position: static;
-    left: 0;
-    height: auto;
-  }
-
-  .dashboard-container header div .menu {
-    display: none;
-  }
 }
