@@ -3,166 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Doctor - Disponibilidad Horaria</title>
-  
-  <!-- Iconos FontAwesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
-  <!-- Estilos globales y de esta página -->
-  <link rel="stylesheet" href="../../styles/base.css">
-  <link rel="stylesheet" href="../../styles/pages/doctor-availability-style.css">
+  <title>Disponibilidad horaria</title>
+  <link rel="stylesheet" href="/styles/base.css">
+  <link rel="stylesheet" href="/styles/pages/admin-global.css">
+  <link rel="stylesheet" href="/styles/components/sidebar.css">
+  <link rel="stylesheet" href="/styles/pages/doctor-availability.css">
+
+  <script defer src="/scripts/admin-global.js"></script>
+  <script defer src="/scripts/components/sidebar.js"></script>
+  <script defer src="/scripts/services/doctors-service.js"></script>
+  <script defer src="/scripts/services/availability-service.js"></script>
+  <script defer src="/scripts/pages/doctor-availability.js"></script>
 </head>
 <body>
-  <div class="admin-wrapper">
-    <!-- Sidebar Izquierdo -->
-    <aside class="sidebar">
-      <div class="sidebar-header">
-        <div class="brand-logo">
-          <i class="fa-solid fa-hospital-user"></i>
-        </div>
-        <div class="brand-info">
-          <h2>MedAdmin</h2>
-          <span>CLINICAL PORTAL</span>
-        </div>
+  <div class="dashboard-container">
+    <header>
+      <span>Gestor de turnos</span>
+      <div>
+        <button class="menu" id="menu-btn">&#9776;</button>
+      </div>
+    </header>
+    <nav id="sidebar">
+    </nav>
+    <main>
+      <div class="page-header">
+        <h1>Gestionar Disponibilidad Horaria</h1>
+        <p class="page-subtitle">
+          Defina los días y rangos horarios de atención para el profesional seleccionado.
+        </p>
       </div>
 
-      <nav class="sidebar-nav">
-        <ul>
-          <li>
-            <a href="../../dashboard.html" class="nav-item">
-              <i class="fa-solid fa-table-cells-large"></i>
-              <span>Dashboard</span>
-            </a>
-          </li>
-          <li class="active">
-            <a href="doctors-list.html" class="nav-item">
-              <i class="fa-solid fa-user-doctor"></i>
-              <span>Doctors</span>
-            </a>
-          </li>
-          <li>
-            <a href="specialties-list.html" class="nav-item">
-              <i class="fa-solid fa-stethoscope"></i>
-              <span>Specialties</span>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-item">
-              <i class="fa-solid fa-users"></i>
-              <span>Patient Search</span>
-            </a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="sidebar-footer">
-        <a href="#" class="footer-link">
-          <i class="fa-regular fa-circle-question"></i>
-          <span>Help Center</span>
-        </a>
-        <a href="../../login.html" class="footer-link">
-          <i class="fa-solid fa-arrow-right-from-bracket"></i>
-          <span>Logout</span>
-        </a>
-      </div>
-    </aside>
-
-    <!-- Contenido Principal -->
-    <main class="main-content">
-      <!-- Breadcrumb y Títulos -->
-      <header class="content-header">
-        <nav class="breadcrumb">
-          <span>Doctores</span>
-          <i class="fa-solid fa-chevron-right separator"></i>
-          <span class="current">Disponibilidad Horaria</span>
-        </nav>
-        <h1 class="page-title">Gestionar Disponibilidad Horaria</h1>
-        <p class="page-subtitle">Defina los días y rangos horarios de atención para el profesional seleccionado.</p>
-      </header>
-
-      <!-- Grilla 2 Columnas -->
       <div class="workspace-grid">
-        
-        <!-- Columna Izquierda: Selección de Médico -->
+
+        <!--Columna izquierda: selección de doctor-->
         <div class="left-column">
           <div class="card doctor-select-card">
-            <label for="doctorSelect" class="form-label">Seleccionar Profesional</label>
-            <div class="select-wrapper">
-              <select id="doctorSelect" class="custom-select">
-                <option value="1">Dr. Alejandro Martínez - Care</option>
-                <option value="2">Dra. Elena Rodríguez - Neurol</option>
-                <option value="3">Dr. James Wilson - Cardio</option>
-              </select>
-            </div>
+            <label for="doctorSelect" class="form-label">Seleccionar profesional</label>
+            <select id="doctorSelect" class="custom-select"></select>
 
-            <!-- Preview Card -->
             <div class="doctor-badge-info">
-              <div class="avatar-container">
-                <img id="docImg" src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=150&auto=format&fit=crop" alt="Doctor" class="avatar-img">
-              </div>
-              <div class="doctor-meta">
-                <h3 id="docName">Dr. Alejandro Martínez</h3>
-                <span class="meta-tag" id="docLicense">ID: MED-99201</span>
-                <span class="location-tag">Sede Central</span>
-              </div>
+              <h3 id="docName"></h3>
+              <span class="meta-tag" id="docLicense"></span>
+              <span class="specialty-tag" id="docSpecialty"></span>
             </div>
           </div>
 
-          <!-- Mensaje Informativo -->
           <div class="info-alert-card">
-            <div class="info-icon">
-              <i class="fa-solid fa-circle-info"></i>
-            </div>
+            <span class="info-icon">i</span>
             <p class="info-text">
-              Los cambios realizados se aplicarán a partir de la próxima semana calendario. Las citas ya programadas no se verán afectadas automáticamente.
+              Los cambios realizados se aplicarán a partir de la próxima semana calendario.
+              Las citas ya programadas no se verán afectadas automáticamente.
             </p>
           </div>
         </div>
 
-        <!-- Columna Derecha: Tabla y Configuración -->
+        <!--Columna derecha: horarios-->
         <div class="right-column">
           <div class="card schedule-card">
-            
             <div class="schedule-header">
-              <h2 class="section-title">Configuración de Horarios</h2>
-              <div class="badges-group">
-                <span class="badge-regular"><i class="fa-solid fa-circle"></i> Horario Regular</span>
-                <span class="badge-info"><i class="fa-regular fa-clock"></i> Intervalos automáticos de 30 minutos</span>
-              </div>
+              <h2 class="section-title">Configuración de horarios</h2>
+              <span class="badge-info">Intervalos de 30 minutos</span>
             </div>
 
             <form id="availabilityForm">
-              <table class="schedule-table">
-                <thead>
-                  <tr>
-                    <th>DÍA</th>
-                    <th>ESTADO</th>
-                    <th>ENTRADA</th>
-                    <th>SALIDA</th>
-                  </tr>
-                </thead>
-                <tbody id="daysTableBody">
-                  <!-- Se genera por JavaScript -->
-                </tbody>
-              </table>
+              <div class="table-responsive">
+                <table class="schedule-table">
+                  <thead>
+                    <tr>
+                      <th>Día</th>
+                      <th>Estado</th>
+                      <th>Entrada</th>
+                      <th>Salida</th>
+                    </tr>
+                  </thead>
+                  <tbody id="daysTableBody">
+                  </tbody>
+                </table>
+              </div>
 
-              <!-- Botones -->
-              <div class="form-actions">
-                <button type="button" id="btnCancel" class="btn btn-secondary">Cancelar</button>
-                <button type="submit" id="btnSave" class="btn btn-primary">
-                  <i class="fa-solid fa-floppy-disk"></i> Guardar Disponibilidad
-                </button>
+              <div class="btn-container">
+                <button type="button" id="cancel-btn">Cancelar</button>
+                <button type="submit" id="save-btn">Guardar Disponibilidad</button>
               </div>
             </form>
-
           </div>
         </div>
 
       </div>
     </main>
+    <footer>Centro de atención médica Sanatología y Otras ciencias &copy; 2032</footer>
   </div>
-
-  <!-- Enlace al Script -->
-  <script src="../../scripts/pages/doctor-availability.js"></script>
 </body>
 </html>
