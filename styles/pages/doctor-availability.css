@@ -1,0 +1,324 @@
+.page-header { padding: 16px 24px 0; }
+
+.page-header h1
+{
+  margin: 0 0 4px 0;
+  font-size: 1.4rem;
+  color: #053660;
+}
+
+.page-subtitle
+{
+  margin: 0;
+  font-size: 0.85rem;
+  color: #5b6b7a;
+}
+
+/* Grilla de dos columnas */
+.workspace-grid
+{
+  display: grid;
+  grid-template-columns: 310px 1fr;
+  gap: 24px;
+  align-items: start;
+  margin: 24px;
+}
+
+.card
+{
+  background-color: #fff;
+  border: 1px solid #e3e8ee;
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+}
+
+/* Selección de doctor */
+.doctor-select-card
+{
+  display: grid;
+  gap: 14px;
+}
+
+.form-label
+{
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #353b48;
+}
+
+.custom-select
+{
+  box-sizing: border-box;
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #d5dbe1;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 0.9rem;
+  color: #091b29;
+}
+
+.custom-select:focus
+{
+  outline: none;
+  border-color: #053660;
+  box-shadow: 0 0 0 3px rgba(5, 54, 96, 0.12);
+}
+
+.doctor-badge-info
+{
+  display: grid;
+  gap: 2px;
+  padding: 16px;
+  border-radius: 8px;
+  background-color: #f4fafa;
+}
+
+.doctor-badge-info h3
+{
+  margin: 0;
+  font-size: 0.95rem;
+  color: #053660;
+}
+
+.meta-tag
+{
+  font-size: 0.8rem;
+  color: #5b6b7a;
+}
+
+.specialty-tag
+{
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #2f80c8;
+}
+
+/* Aviso informativo */
+.info-alert-card
+{
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #bfdbfe;
+  border-radius: 10px;
+  background-color: #eff6ff;
+}
+
+.info-icon
+{
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #2f80c8;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+}
+
+.info-text
+{
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: #1e3a8a;
+}
+
+/* Horarios */
+.schedule-header
+{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e3e8ee;
+}
+
+.section-title
+{
+  margin: 0;
+  font-size: 1.05rem;
+  color: #091b29;
+}
+
+.badge-info
+{
+  font-size: 0.78rem;
+  color: #5b6b7a;
+}
+
+.table-responsive
+{
+  width: 100%;
+  overflow-x: auto;
+}
+
+.schedule-table
+{
+  width: 100%;
+  min-width: 480px;
+  border-collapse: collapse;
+}
+
+.schedule-table th
+{
+  padding: 12px 14px;
+  border-bottom: 1px solid #e3e8ee;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #353b48;
+}
+
+.schedule-table td
+{
+  padding: 14px;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: middle;
+}
+
+.day-label
+{
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #091b29;
+}
+
+/* Switch */
+.switch-container
+{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.switch
+{
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 20px;
+}
+
+.switch input
+{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider
+{
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background-color: #cbd5e1;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.slider::before
+{
+  content: '';
+  position: absolute;
+  left: 3px;
+  bottom: 3px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: 0.3s;
+}
+
+.switch input:checked + .slider { background-color: #2f80c8; }
+.switch input:checked + .slider::before { transform: translateX(18px); }
+
+.status-text
+{
+  min-width: 56px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #5b6b7a;
+}
+
+.status-text.active { color: #2f80c8; }
+
+/* Inputs de hora */
+.time-input
+{
+  padding: 6px 10px;
+  border: 1px solid #d5dbe1;
+  border-radius: 6px;
+  background-color: #fff;
+  font-size: 0.85rem;
+  color: #091b29;
+}
+
+.time-input:disabled
+{
+  border-color: #f1f5f9;
+  background-color: #f8fafc;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* Botones (igual que en doctors-create) */
+.btn-container
+{
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e3e8ee;
+}
+
+.btn-container button
+{
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 6px;
+  font-weight: 550;
+  cursor: pointer;
+}
+
+#cancel-btn
+{
+  border: 1px solid #d5dbe1;
+  background-color: #fff;
+  color: #353b48;
+}
+
+#save-btn
+{
+  border: none;
+  background-color: #053660;
+  color: #fff;
+}
+
+@media (max-width: 900px)
+{
+  .workspace-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px)
+{
+  .schedule-header
+  {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .btn-container { flex-direction: column; }
+}
