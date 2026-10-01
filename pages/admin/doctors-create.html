@@ -11,6 +11,8 @@
   <script defer src="../../scripts/admin-global.js"></script>
   <link rel="stylesheet" href="../../styles/components/sidebar.css">
   <script defer src="../../scripts/components/sidebar.js"></script>
+  <script defer src="../../scripts/services/doctors-service.js"></script>
+  <script defer src="../../scripts/pages/doctors-create.js"></script>
 </head>
 <body>
   <div class="dashboard-container">
@@ -30,7 +32,7 @@
         </p>
       </div>
      <div class="cuadroformulario">
-        <form class="formularioCrear">
+        <form id="doctor-create-form" class="formularioCrear">
             <label for="nombre">Nombre completo del doctor</label>
             <input type="text" placeholder="Ej: Dr. Juan Pérez" id="nombre">
             
@@ -51,8 +53,8 @@
               </div>
             </div>
             <div class="btn-container">
-                <button id="cancel-btn">Cancelar</button>
-                <button id="create-btn">Guardar Doctor</button>
+                <button type="button" id="cancel-btn">Cancelar</button>
+                <button type="submit" id="create-btn">Guardar Doctor</button>
             </div>
         </form>
     </div>
