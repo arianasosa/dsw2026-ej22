@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agregar especialidades</title>
-  <link rel="stylesheet" href="/styles/base.css">
-  <link rel="stylesheet" href="/styles/pages/specialties-create.css">
-  <link rel="stylesheet" href="/styles/pages/admin-global.css">
+  <link rel="stylesheet" href="../../styles/base.css">
+  <link rel="stylesheet" href="../../styles/pages/specialties-create.css">
+  <link rel="stylesheet" href="../../styles/pages/admin-global.css">
   
-  <script defer src="/scripts/admin-global.js"></script>
-  <link rel="stylesheet" href="/styles/components/sidebar.css">
-  <script defer src="/scripts/global-dashboard.js"></script>
-  <script defer src="/scripts/components/sidebar.js"></script>
+  <script defer src="../../scripts/admin-global.js"></script>
+  <link rel="stylesheet" href="../../styles/components/sidebar.css">
+  <script defer src="../../scripts/components/sidebar.js"></script>
+  <script defer src="../../scripts/services/specialties-service.js"></script>
+  <script defer src="../../scripts/pages/specialties-create.js"></script>
 </head>
 <body>
   <div class="dashboard-container">
@@ -27,19 +28,19 @@
       <h1>Registrar Nueva Especialidad</h1>
       <p>Complete la informacion tecnica y administrativa para dar de alta una especialidad medica en el sistema hospitalario</p>
      <div class="cuadroformulario">
-        <form class="formularioCrear">
-            <label>Nombre de la especialidad</label>
-            <input type="text" placeholder="Ej: Cardiología Intervención">
+        <form id="specialty-create-form" class="formularioCrear">
+          <label for="specialty-name">Nombre de la especialidad</label>
+          <input id="specialty-name" type="text" placeholder="Ej: Cardiología Intervención">
             <label>Descripción</label>
             <textarea id="inputDescription" placeholder="Detalle el alcance de la especialidad, procedimientos principales y requisitos de derivacion..."></textarea>
-            <label for="Especialidades">Estado inicial</label>
-            <select id="Especialidades">
-            <option value="">Activo - Disponible para programacion</option>
-            <option value="">No Activo - No Disponible para programacion</option>
+          <label for="specialty-status">Estado inicial</label>
+          <select id="specialty-status">
+          <option value="Active">Activo - Disponible para programacion</option>
+          <option value="Inactive">No Activo - No Disponible para programacion</option>
             </select>
             <div class="btn-container">
-                <button id="cancel-btn">Cancelar</button>
-                <button id="create-btn">Guardar Especialidad</button>
+            <button type="button" id="cancel-btn">Cancelar</button>
+            <button type="submit" id="create-btn">Guardar Especialidad</button>
             </div>
         </form>
     </div>
