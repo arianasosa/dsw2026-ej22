@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página principal</title>
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/pages/admin-global.css">
+    <link rel="stylesheet" href="/styles/pages/main-panel.css">
+    <link rel="stylesheet" href="/styles/components/sidebar.css">
+    <link rel="stylesheet" href="/styles/components/doctors-table.css">
+    
+    <script defer src="/scripts/components/sidebar.js"></script>
+    <script defer src="/scripts/services/doctors-service.js"></script> 
+    <script defer src="/scripts/admin-global.js"></script>
+    <script defer src="/scripts/pages/main-page.js"></script>
+</head>
+<body>
+    <div class="dashboard-container">
+    <nav id="sidebar">
+    </nav>
+    <main>
+        <header>
+            <div class="header-container">
+                <span class="title">Vista General de Gestión</span>
+                <span class="subtitle">Configure el personal médico y las especialidades del departamento</span>
+                <div class="header-buttons">
+                    <button id="btn-new-doctor" type="button">Agregar Nuevo Doctor</button>
+                    <button id="btn-new-specialty" type="button">Agregar Nueva Especialidad</button>
+                </div>
+                <div>
+                    <button class="menu" id="menu-btn">&#9776;</button>
+                </div>
+            </div>
+        </header>
+        
+        <section class="cards-section">
+            <div class="card">
+                <img src="/icons/medkit.png" alt="icono botiquin">
+                <span class="card-trend">+4 este mes</span>
+                <span class="card-title">DOCTORES ACTIVOS</span>
+                <span class="card-value">124</span>
+            </div>
+            
+            <div class="card">
+                <img src="/icons/dashboard.png" alt="icono cuadraditos">
+                <span class="card-trend">Estable</span>
+                <span class="card-title">ESPECIALIDADES ACTIVAS</span>
+                <span class="card-value">32</span>
+            </div>
+            
+            <div class="card">
+                <img src="/icons/appointment.png" alt="icono calendario">
+                <span class="card-trend">Hoy</span>
+                <span class="card-title">TURNOS CONFIRMADOS PARA HOY</span>
+                <span class="card-value">48</span>
+            </div>
+        </section>
+        
+        <section class="table-card">
+        <!--Sección de búsqueda, lo que está justo encima de la tabla-->
+        <section class="doctor-directory">
+            <h3>Directorio de Profesionales Médicos</h3>
+            <form id="form-doc-name" class="search-section">
+                <!--lupita-->
+                <input id="doctor-input" type="text" placeholder="Buscar por nombre...">
+            </form>
+        </section>
+        
+        <!--Tabla acotada de doctores-->
+        <section class="table-container">
+            <table class="doctor-table">
+                <thead>
+                    <tr>
+                        <th>Nombre del doctor</th>
+                        <th>Especialidad</th>
+                        <th>Estado de Disponibilidad</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="doctor-table-body">
+                    
+                </tbody>
+            </table>
+        </section>
+        
+        <!--Paginación-->
+        <div class="table-results-filter">
+            <span> Mostrando 1 a 3 de 124 resultados</span>
+            <button type="button" aria-label="Página anterior">&lt</button>
+            <button type="button" aria-label="Página siguiente">&gt</button>
+        </div>
+        </section>
+        
+
+    </main>
+    <footer>Centro de atención médica Sanatología y Otras ciencias &copy; 2032</footer>
+  </div>
+</body>
+</html>

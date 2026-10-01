@@ -1,0 +1,151 @@
+body
+{
+    background-color: #f4f7f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-container
+{
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    min-height: 100dvh;
+}
+
+main
+{
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    min-width: 0;
+}
+
+.header-container
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.title
+{
+    display: block;
+    font-size: 1.8rem;
+    color: #0b3b60;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+.subtitle
+{
+    display: block;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+.header-buttons
+{
+    display: flex;
+    gap: 1rem
+}
+
+.header-buttons button
+{
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#btn-new-doctor
+{
+    background-color: #0b3b60;
+    color: #ffff;
+    border: 1px solid #0b3b60;
+}
+
+#btn-new-doctor:hover
+{
+    background-color: #082a45;
+}
+
+#btn-new-specialty
+{
+    background-color: transparent;
+    border: 1px solid #0b3b60;
+    color: #0b3b60;
+}
+
+#btn-new-specialty:hover
+{
+    background-color: #e0e7ed;
+}
+
+#menu-btn
+{
+    display: none;
+}
+
+.cards-section
+{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1.5rem;
+}
+
+.card
+{
+   background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto auto;
+  grid-template-areas:
+  "icon . trend"
+  "title title title"
+  "value value value"; 
+  row-gap: 1rem;
+}
+
+.card img
+{
+    grid-area: icon;
+    width: 28px;
+    height: 28px;
+    background-color: #f1f5f9;
+    padding: 10px;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.card-trend
+{
+    grid-area: trend;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-weight: 600;
+    height: fit-content;
+}
+
+.card-title
+{
+    grid-area: title;
+    font-size: 0.8rem;
+    color: #535e6c;
+    font-weight: 600;
+}
+
+.card-value
+{
+    grid-area: value;
+    font-size: 2.2rem;
+    color: #0b3b60;
+    font-weight: 700;
+}
