@@ -57,3 +57,40 @@
   height: 28px;
   border-radius: 4px;
 }
+
+.doctor-table .actions-container
+{
+  display: flex;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.doctor-table .icon-btn
+{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: #2f80c8;
+  cursor: pointer;
+}
+
+.doctor-table .icon-btn:hover
+{
+  background-color: #eef4fa;
+}
+
+.doctor-table .icon-btn-delete
+{
+  color: #d64545;
+}
+
+.doctor-table .icon-btn-delete:hover
+{
+  background-color: #fdeaea;
+}
