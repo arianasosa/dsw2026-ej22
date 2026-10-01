@@ -1,4 +1,6 @@
 
+const SPECIALTIES_STORAGE_KEY = 'medportal.specialties';
+
 /* FUNCIÓN PARA CREAR LA TABLA */
 const createSpecialtyTable = (list, tbody) => 
     {
@@ -34,20 +36,57 @@ const createSpecialtyTable = (list, tbody) =>
         } )
       };
 
-/* FUNCIÓN PARA LEVANTAR DATOS DEL JSON */
-const fetchSpecialties = async () => 
+/* LEE LA LISTA PERSISTIDA O LA CARGA DESDE EL JSON POR ÚNICA VEZ */
+const getSpecialties = async () =>
   {
+    const storedSpecialties = localStorage.getItem(SPECIALTIES_STORAGE_KEY);
+
+    if (storedSpecialties)
+    {
+      return JSON.parse(storedSpecialties);
+    }
+
     try
     {
-      const response = await fetch('/data/specialties.json');
+      const response = await fetch('../../data/specialties.json');
+
+      if (!response.ok)
+      {
+        throw new Error(`No se pudo cargar especialidades: ${response.status}`);
+      }
+
       const specialties = await response.json();
+      saveSpecialties(specialties);
       return specialties;
     }
     catch(e)
     {
       console.error(e);
+      return [];
     }
-  }
+  };
+
+const saveSpecialties = (specialties) =>
+  {
+    localStorage.setItem(SPECIALTIES_STORAGE_KEY, JSON.stringify(specialties));
+  };
+
+const addSpecialty = async (specialtyData) =>
+  {
+    const specialties = await getSpecialties();
+    const lastSpecialtyId = specialties.reduce((highestId, specialty) =>
+      Math.max(highestId, Number(specialty.id) || 0), 0);
+
+    const newSpecialty =
+      {
+        id: lastSpecialtyId + 1,
+        ...specialtyData
+      };
+
+    specialties.push(newSpecialty);
+    saveSpecialties(specialties);
+    return newSpecialty;
+  };
 
 /* FUNCIÓN DE UTILIDAD PARA NORMALIZAR LA ENTRADA DEL USUARIO A LA HORA DE FILTRAR ESPECIALIDADES */
 const contains = (a,b) => 
@@ -60,7 +99,7 @@ const contains = (a,b) =>
 /*CARGAR TABLA*/
 const loadTable = async (filterCriteria = '') =>
   {
-    const specialties = await fetchSpecialties();
+    const specialties = await getSpecialties();
     const tbody = document.getElementById('specialty-table-body');
 
     if(filterCriteria.length)
@@ -75,3 +114,4 @@ const loadTable = async (filterCriteria = '') =>
   }
 
 window.loadTable = loadTable;
+window.addSpecialty = addSpecialty;
