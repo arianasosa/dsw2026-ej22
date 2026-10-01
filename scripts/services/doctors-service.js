@@ -1,4 +1,6 @@
 
+const DOCTORS_STORAGE_KEY = 'medportal.doctors';
+
 /* FUNCIÓN PARA CREAR LA TABLA */
 const svg = (paths) => `<svg viewBox="0 0 24 24" width="18" height="18" fill="none"
   stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -59,20 +61,60 @@ const createDoctorsTable = (list, tbody) =>
         } )
       };
 
-/* FUNCIÓN PARA LEVANTAR DATOS DEL JSON */
-const fetchDoctors = async () => 
+/* LEE LA LISTA PERSISTIDA O LA CARGA DESDE EL JSON POR ÚNICA VEZ */
+const getDoctors = async () =>
   {
+    const storedDoctors = localStorage.getItem(DOCTORS_STORAGE_KEY);
+
+    if (storedDoctors) 
+    {
+      return JSON.parse(storedDoctors);
+    }
+
     try
     {
-      const response = await fetch('/data/doctors.json');
+      const response = await fetch('../../data/doctors.json');
+
+      if (!response.ok)
+      {
+        throw new Error(`No se pudo cargar doctores: ${response.status}`);
+      }
+
       const doctors = await response.json();
+      saveDoctors(doctors);
       return doctors;
     }
     catch(e)
     {
       console.error(e);
+      return [];
     }
-  }
+  };
+
+const saveDoctors = (doctors) =>
+  {
+    localStorage.setItem(DOCTORS_STORAGE_KEY, JSON.stringify(doctors));
+  };
+
+const addDoctor = async (doctorData) =>
+  {
+    const doctors = await getDoctors();
+    const lastDoctorNumber = doctors.reduce((highestNumber, doctor) =>
+      {
+        const doctorNumber = Number(doctor.id.replace('D', '')) || 0;
+        return Math.max(highestNumber, doctorNumber);
+      }, 0);
+
+    const newDoctor =
+      {
+        id: `D${lastDoctorNumber + 1}`,
+        ...doctorData
+      };
+
+    doctors.push(newDoctor);
+    saveDoctors(doctors);
+    return newDoctor;
+  };
 
 /* FUNCIÓN DE UTILIDAD PARA NORMALIZAR LA ENTRADA DEL USUARIO A LA HORA DE FILTRAR ESPECIALIDADES */
 const contains = (a,b) => 
@@ -85,7 +127,7 @@ const contains = (a,b) =>
 /*CARGAR TABLA*/
 const loadTable = async (filterCriteria = '') =>
   {
-    const doctors = await fetchDoctors();
+    const doctors = await getDoctors();
     const tbody = document.getElementById('doctor-table-body');
 
     if(filterCriteria.length)
@@ -100,3 +142,4 @@ const loadTable = async (filterCriteria = '') =>
   }
 
 window.loadTable = loadTable;
+window.addDoctor = addDoctor;
